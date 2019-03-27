@@ -1,4 +1,8 @@
-whites = [{'color': 'white', 'piece': 'king', 'canrock': '1'},
-          {'color': 'white', 'piece': 'queen'}]
-blacks = [{'color': 'black', 'piece': 'king', 'canrock': '1'},
-          {'color': 'white', 'piece': 'queen'}]
+piece = [{'color': 'white', 'name': 'k', 'canrock': '1', 'cord': ''},
+         {'color': 'white', 'name': 'q', 'cord': ''}]
+
+
+def getPiece(cord):
+    for i in piece:
+        if (i['cord'] == cord):
+            return i['name']
