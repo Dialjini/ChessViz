@@ -1,6 +1,16 @@
 import desk
+import piece
 
 a = ''
+
+
+def getCord1(a):
+    return True
+
+
+def getCord2(a):
+    return True
+
 
 for i in desk.map:
     print(i)
@@ -19,4 +29,8 @@ while (a != 'quit'):
             print(i)
     if (len(a) == 5):
         if (a[2] == '-'):
+            cord1 = getCord1(a)
+            cord2 = getCord2(a)
+            if (desk.is_real(cord1=cord1, cord2=cord2)):
+                desk.history.append({'step': a, 'stash': piece.getPiece(cord=cord2)})
             print('debug')
