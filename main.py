@@ -8,6 +8,8 @@ def getCord1(a):
     return True
 
 
+# TODO make getCord... methods
+
 def getCord2(a):
     return True
 

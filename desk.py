@@ -19,3 +19,9 @@ default = [[' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', ' '],
            ['7', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', '7'],
            ['8', 'R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R', '8'],
            [' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', ' ']]
+
+history = []
+
+
+def is_real(cord1, cord2):  # TODO Do piece possible step check
+    return True
