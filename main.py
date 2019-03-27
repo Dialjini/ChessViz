@@ -1,4 +1,3 @@
-import piece
 import desk
 
 a = ''
@@ -18,3 +17,6 @@ while (a != 'quit'):
         desk.map = desk.default
         for i in desk.map:
             print(i)
+    if (len(a) == 5):
+        if (a[2] == '-'):
+            print('debug')
