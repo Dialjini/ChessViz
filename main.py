@@ -13,11 +13,8 @@ def reCord(cord):
 def getCord2(a):
     return reCord(cord=(a[3] + a[4]))
 
-
-# TODO make getCord... methods
-
 def getCord1(a):
-    return True
+    return reCord(cord=(a[0] + a[1]))
 
 
 for i in desk.map:
