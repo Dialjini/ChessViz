@@ -23,5 +23,6 @@ default = [[' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', ' '],
 history = []
 
 
-def is_real(cord1, cord2):  # TODO Do piece possible step check
-    return True
+def is_real(cord1, cord2):
+    return ((cord1[0] > '0') & (cord1[1] > 0) & (cord2[0] > '0') & (cord2[1] > 0) & (cord1[0] < '9')
+            & (cord1[1] < '9') & (cord2[0] < '9') & (cord2[1] < '9'))
