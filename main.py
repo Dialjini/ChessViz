@@ -37,8 +37,9 @@ if (len(a) == 5):
     if (a[2] == '-'):
         cord1 = getCord1(a)
         cord2 = getCord2(a)
-        if (desk.is_real(cord1=cord1, cord2=cord2)):
-            desk.history.append({'step': a, 'stash': piece.getPiece(cord=cord2)})
-            print('debug')
+        if (cord1 != cord2):
+            if (desk.is_real(cord1=cord1, cord2=cord2)):
+                desk.history.append({'step': a, 'stash': piece.getPiece(cord=cord2)})
+                print('debug')
 
 print(getCord2(a='a1-a2'))
