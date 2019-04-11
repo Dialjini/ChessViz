@@ -37,7 +37,7 @@ def is_real(cord1, cord2):
             if (getPiece(cord2) != ' '):
                 return False
         else:
-            if (getPiece(cord2) == ' '):
+            if ((getPiece(cord2) == ' ') & getPiece(cord2).islower):
                 return False
             else:
                 return True
@@ -51,7 +51,7 @@ def is_real(cord1, cord2):
             if (getPiece(cord2) != ' '):
                 return False
         else:
-            if (getPiece(cord2) == ' '):
+            if ((getPiece(cord2) == ' ') & getPiece(cord2).isupper):
                 return False
             else:
                 return True
