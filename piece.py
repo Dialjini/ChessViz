@@ -3,19 +3,19 @@ import const
 
 
 def rockIsPossible(char):
-    if (char == 'k' & const.k):
+    if ((char == 'k') & (const.k)):
         const.k = False
         return True
-    if (char == 'K' & const.K):
+    if ((char == 'K') & (const.K)):
         const.K = False
         return True
 
 
 def queenStillStand(char):
-    if (char == 'q' & const.q):
+    if ((char == 'q') & (const.q)):
         const.q = False
         return True
-    if (char == 'Q' & const.Q):
+    if ((char == 'Q') & (const.Q)):
         const.Q = False
         return True
 
@@ -59,7 +59,7 @@ def is_real(cord1, cord2):
             else:
                 return False
         if ((((cord2[0] - cord1[0]) == '1') | (cord2[0] - cord1[0] == '-1') | (cord2[1] - cord1[1]) == '1') | (
-                cord2[1] - cord1[1] == '-1') & getPiece(cord2) == ' '):
+                cord2[1] - cord1[1] == '-1') & (getPiece(cord2) == ' ') | (getPiece(cord2).isupper())):
             return True
         else:
             return False
@@ -71,13 +71,14 @@ def is_real(cord1, cord2):
             else:
                 return False
         if ((((cord2[0] - cord1[0]) == '1') | (cord2[0] - cord1[0] == '-1') | (cord2[1] - cord1[1]) == '1') | (
-                cord2[1] - cord1[1] == '-1') & getPiece(cord2) == ' '):
+                cord2[1] - cord1[1] == '-1') & (getPiece(cord2) == ' ') | (getPiece(cord2).islower())):
             return True
         else:
             return False
 
     if (getPiece(cord1) == 'r'):  # Rook rules
-        if ((cord1[0] - cord2[0] == '0') & (cord1[1] - cord2[1] == '0')):
+        if ((cord1[0] - cord2[0] == '0') & (cord1[1] - cord2[1] == '0') & (
+                (getPiece(cord2) == ' ') | (getPiece(cord2).isupper()))):
             if (cord1[0] - cord2[0]) == 0:
                 i1 = cord1[1]
                 i2 = cord2[1]
@@ -107,7 +108,8 @@ def is_real(cord1, cord2):
             return True
 
     if (getPiece(cord1) == 'R'):  # Rook rules
-        if ((cord1[0] - cord2[0] == '0') & (cord1[1] - cord2[1] == '0')):
+        if ((cord1[0] - cord2[0] == '0') & (cord1[1] - cord2[1] == '0') & (
+                (getPiece(cord2) == ' ') | (getPiece(cord2).islower()))):
             if (cord1[0] - cord2[0]) == 0:
                 i1 = cord1[1]
                 i2 = cord2[1]
@@ -135,3 +137,27 @@ def is_real(cord1, cord2):
                     if getPiece(i1 + cord1[1]) != ' ':
                         return False
             return True
+
+    if (getPiece(cord1) == 'b'):  # Bishop rules
+        if (cord2[0] - cord1[0] == cord2[1] - cord2[1] & ((getPiece(cord2) == ' ') | (getPiece(cord2).islower()))):
+            bish = cord2[0] - cord1[0]
+            if bish < 0:
+                bish = bish * (-1)
+            bish0 = '0'
+            while (bish0 < bish):
+                bish0 = bish0 + 1
+                if getPiece((cord2[0] - bish0) + (cord2[1] - bish0)) != ' ':
+                    return False
+        return True
+
+    if (getPiece(cord1) == 'B'):  # Bishop rules
+        if (cord2[0] - cord1[0] == cord2[1] - cord2[1] & ((getPiece(cord2) == ' ') | (getPiece(cord2).islower()))):
+            bish = cord2[0] - cord1[0]
+            if bish < 0:
+                bish = bish * (-1)
+            bish0 = '0'
+            while (bish0 < bish):
+                bish0 = bish0 + 1
+                if getPiece((cord2[0] - bish0) + (cord2[1] - bish0)) != ' ':
+                    return False
+        return True
