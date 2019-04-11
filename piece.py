@@ -19,6 +19,7 @@ def queenStillStand(char):
         const.Q = False
         return True
 
+
 def getPiece(cord):
     return main.a[cord[0]][cord[1]]
 
@@ -74,3 +75,63 @@ def is_real(cord1, cord2):
             return True
         else:
             return False
+
+    if (getPiece(cord1) == 'r'):  # Rook rules
+        if ((cord1[0] - cord2[0] == '0') & (cord1[1] - cord2[1] == '0')):
+            if (cord1[0] - cord2[0]) == 0:
+                i1 = cord1[1]
+                i2 = cord2[1]
+
+                if (i1 - i2 > 0):
+                    iglass = i2
+                    i2 = i1
+                    i1 = iglass
+
+                while (i2 > i1):
+                    i1 = i1 + 1
+                    if getPiece(cord1[0] + i1) != ' ':
+                        return False
+            if (cord1[1] - cord2[1]) == 0:
+                i1 = cord1[0]
+                i2 = cord2[0]
+
+                if (i1 - i2 > 0):
+                    iglass = i2
+                    i2 = i1
+                    i1 = iglass
+
+                while (i2 > i1):
+                    i1 = i1 + 1
+                    if getPiece(i1 + cord1[1]) != ' ':
+                        return False
+            return True
+
+    if (getPiece(cord1) == 'R'):  # Rook rules
+        if ((cord1[0] - cord2[0] == '0') & (cord1[1] - cord2[1] == '0')):
+            if (cord1[0] - cord2[0]) == 0:
+                i1 = cord1[1]
+                i2 = cord2[1]
+
+                if (i1 - i2 > 0):
+                    iglass = i2
+                    i2 = i1
+                    i1 = iglass
+
+                while (i2 > i1):
+                    i1 = i1 + 1
+                    if getPiece(cord1[0] + i1) != ' ':
+                        return False
+            if (cord1[1] - cord2[1]) == 0:
+                i1 = cord1[0]
+                i2 = cord2[0]
+
+                if (i1 - i2 > 0):
+                    iglass = i2
+                    i2 = i1
+                    i1 = iglass
+
+                while (i2 > i1):
+                    i1 = i1 + 1
+                    if getPiece(i1 + cord1[1]) != ' ':
+                        return False
+            return True
