@@ -4,6 +4,9 @@ import piece
 a = ''
 
 
+def getPiece(cord):
+    return desk.map[int(cord[1])][int(cord[0])]
+
 def reCord(cord):
     newcord1 = ord(cord[0]) - 96
     newcord2 = ord(cord[1]) - 48
@@ -40,7 +43,11 @@ while (a != 'quit'):
             cord2 = getCord2(a)
             if (cord1 != cord2):
                 if (desk.is_real(cord1=cord1, cord2=cord2)):
-                    desk.history.append({'step': a, 'stash': piece.getPiece(cord=cord2)})
-                    print('debug')
+                    if (piece.is_real(cord1=cord1, cord2=cord2)):
+                        desk.map[int(cord2[1])][int(cord2[0])] = getPiece(cord1)
+                        desk.map[int(cord1[1])][int(cord1[0])] = ' '
+                        for i in desk.map:
+                            print(i)
+            #     desk.history.append({'step': a, 'stash': piece.getPiece(cord=cord2)})
 
 print(getCord2(a='a1-a2'))
