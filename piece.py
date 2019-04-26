@@ -172,6 +172,7 @@ def is_real(cord1, cord2):
             return True
 
     if (getPiece(cord1) == 'N'):  # K***ht rules
-        if ((cord2[0] - cord1[0] <= '2') & (cord2[1] - cord1[1] <= '2') & (cord2[0] - cord1[0] >= '-2') & (
-                cord2[1] - cord1[1] == '-2') & (getPiece(cord2).isupper | getPiece(cord2) == ' ')):
+        if ((int(cord2[0] - cord1[0]) <= 2) & (int(cord2[1] - cord1[1]) <= 2) & (int(cord2[0] - cord1[0]) >= -2) & (
+                int(  # TODO доделать преобразование типов со всеми
+                        cord2[1] - cord1[1]) == -2) & (getPiece(cord2).isupper | getPiece(cord2) == ' ')):
             return True
