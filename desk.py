@@ -24,5 +24,5 @@ history = []
 
 
 def is_real(cord1, cord2):
-    return ((cord1[0] > '0') & (cord1[1] > 0) & (cord2[0] > '0') & (cord2[1] > 0) & (cord1[0] < '9')
-            & (cord1[1] < '9') & (cord2[0] < '9') & (cord2[1] < '9'))
+    return ((int(cord1[0]) > 0) & (int(cord1[1]) > 0) & (int(cord2[0]) > 0) & (int(cord2[1]) > 0) & (int(cord1[0]) < 9)
+            & (int(cord1[1]) < 9) & (int(cord2[0]) < 9) & (int(cord2[1]) < 9))
