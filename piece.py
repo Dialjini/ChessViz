@@ -1,4 +1,4 @@
-import main
+import desk
 import const
 
 
@@ -21,7 +21,7 @@ def queenStillStand(char):
 
 
 def getPiece(cord):
-    return main.a[cord[0]][cord[1]]
+    return desk.map[int(cord[1])][int(cord[0])]
 
 
 def is_real(cord1, cord2):
@@ -29,11 +29,11 @@ def is_real(cord1, cord2):
         return False
 
     if (getPiece(cord1) == 'p'):  # Pawn rules
-        if ((cord1[1] == '2') & (cord2[1] == '4')):
+        if ((int(cord1[1]) == 2) & (int(cord2[1]) == 4)):
             return True
-        if (((cord1[1] - cord2[1]) != '1') | (cord1[1] - cord2[1] != '-1')):
-            if (((cord1[0] - cord2[0]) > '2') | (((cord1[0] - cord2[0]) < '1'))):
-                return False
+        if ((int(cord1[1]) - int(cord2[1]) != 1) | (int(cord1[1]) - int(cord2[1]) != -1)):
+            if ((int(cord1[0]) - int(cord2[0]) > 2) | (int(cord1[0]) - int(cord2[0]) < 1)):
+                return True
             if (getPiece(cord2) != ' '):
                 return False
         else:
@@ -43,11 +43,11 @@ def is_real(cord1, cord2):
                 return True
 
     if (getPiece(cord1) == 'P'):  # Pawn rules
-        if ((cord1[1] == '7') & (cord2[1] == '5')):
+        if ((int(cord1[1]) == 7) & (int(cord2[1]) == 5)):
             return True
-        if (((cord1[1] - cord2[1]) != '1') | (cord1[1] - cord2[1] != '-1')):
-            if (((cord1[0] - cord2[0]) > '2') | (((cord1[0] - cord2[0]) < '1'))):
-                return False
+        if ((int(cord1[1]) - int(cord2[1]) != 1) | (int(cord1[1]) - int(cord2[1]) != -1)):
+            if ((int(cord1[0]) - int(cord2[0]) > 2) | ((int(cord1[0]) - int(cord2[0]) < 1))):
+                return True
             if (getPiece(cord2) != ' '):
                 return False
         else:
