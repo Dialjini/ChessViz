@@ -37,7 +37,7 @@ def is_real(cord1, cord2):
             if (getPiece(cord2) != ' '):
                 return False
         else:
-            if ((getPiece(cord2) == ' ') & getPiece(cord2).islower):
+            if ((getPiece(cord2) == ' ') & getPiece(cord2).islower()):
                 return False
             else:
                 return True
@@ -51,7 +51,7 @@ def is_real(cord1, cord2):
             if (getPiece(cord2) != ' '):
                 return False
         else:
-            if ((getPiece(cord2) == ' ') & getPiece(cord2).isupper):
+            if ((getPiece(cord2) == ' ') & getPiece(cord2).isupper()):
                 return False
             else:
                 return True
@@ -62,8 +62,9 @@ def is_real(cord1, cord2):
                 return True
             else:
                 return False
-        if ((((cord2[0] - cord1[0]) == '1') | (cord2[0] - cord1[0] == '-1') | (cord2[1] - cord1[1]) == '1') | (
-                cord2[1] - cord1[1] == '-1') & (getPiece(cord2) == ' ') | (getPiece(cord2).isupper())):
+        if (((((int(cord2[0]) - int(cord1[0])) == 1) | (int(cord2[0]) - int(cord1[0])) == -1) | (
+                cord2[1] - cord1[1]) == 1) | (
+                (int(cord2[1]) - int(cord1[1])) == -1) & (getPiece(cord2) == ' ') | (getPiece(cord2).isupper())):
             return True
         else:
             return False
@@ -74,18 +75,19 @@ def is_real(cord1, cord2):
                 return True
             else:
                 return False
-        if ((((cord2[0] - cord1[0]) == '1') | (cord2[0] - cord1[0] == '-1') | (cord2[1] - cord1[1]) == '1') | (
-                cord2[1] - cord1[1] == '-1') & (getPiece(cord2) == ' ') | (getPiece(cord2).islower())):
+        if ((((int(cord2[0]) - int(cord1[0])) == 1) | (int(cord2[0]) - int(cord1[0]) == -1) | (
+                int(cord2[1]) - int(cord1[1])) == 1) | (
+                int(cord2[1]) - int(cord1[1]) == -1) & (getPiece(cord2) == ' ') | (getPiece(cord2).islower())):
             return True
         else:
             return False
 
     if (getPiece(cord1) == 'r'):  # Rook rules
-        if ((cord1[0] - cord2[0] == '0') & (cord1[1] - cord2[1] == '0') & (
+        if ((int(cord1[0]) - int(cord2[0]) == 0) & (int(cord1[1]) - int(cord2[1]) == 0) & (
                 (getPiece(cord2) == ' ') | (getPiece(cord2).isupper()))):
-            if (cord1[0] - cord2[0]) == 0:
-                i1 = cord1[1]
-                i2 = cord2[1]
+            if (int(cord1[0]) - int(cord2[0])) == 0:
+                i1 = int(cord1[1])
+                i2 = int(cord2[1])
 
                 if (i1 - i2 > 0):
                     iglass = i2
@@ -94,11 +96,11 @@ def is_real(cord1, cord2):
 
                 while (i2 > i1):
                     i1 = i1 + 1
-                    if getPiece(cord1[0] + i1) != ' ':
+                    if getPiece(cord1[0] + str(i1)) != ' ':
                         return False
-            if (cord1[1] - cord2[1]) == 0:
-                i1 = cord1[0]
-                i2 = cord2[0]
+            if (int(cord1[1]) - int(cord2[1])) == 0:
+                i1 = int(cord1[0])
+                i2 = int(cord2[0])
 
                 if (i1 - i2 > 0):
                     iglass = i2
@@ -107,16 +109,16 @@ def is_real(cord1, cord2):
 
                 while (i2 > i1):
                     i1 = i1 + 1
-                    if getPiece(i1 + cord1[1]) != ' ':
+                    if getPiece(str(i1) + cord1[1]) != ' ':
                         return False
             return True
 
     if (getPiece(cord1) == 'R'):  # Rook rules
-        if ((cord1[0] - cord2[0] == '0') & (cord1[1] - cord2[1] == '0') & (
+        if ((int(cord1[0]) - int(cord2[0]) == '0') & (int(cord1[1]) - int(cord2[1]) == '0') & (
                 (getPiece(cord2) == ' ') | (getPiece(cord2).islower()))):
-            if (cord1[0] - cord2[0]) == 0:
-                i1 = cord1[1]
-                i2 = cord2[1]
+            if (int(cord1[0]) - int(cord2[0])) == 0:
+                i1 = int(cord1[1])
+                i2 = int(cord2[1])
 
                 if (i1 - i2 > 0):
                     iglass = i2
@@ -125,11 +127,11 @@ def is_real(cord1, cord2):
 
                 while (i2 > i1):
                     i1 = i1 + 1
-                    if getPiece(cord1[0] + i1) != ' ':
+                    if getPiece(cord1[0] + str(i1)) != ' ':
                         return False
-            if (cord1[1] - cord2[1]) == 0:
-                i1 = cord1[0]
-                i2 = cord2[0]
+            if (int(cord1[1]) - int(cord2[1])) == 0:
+                i1 = int(cord1[0])
+                i2 = int(cord2[0])
 
                 if (i1 - i2 > 0):
                     iglass = i2
@@ -138,41 +140,48 @@ def is_real(cord1, cord2):
 
                 while (i2 > i1):
                     i1 = i1 + 1
-                    if getPiece(i1 + cord1[1]) != ' ':
+                    if getPiece(str(i1) + cord1[1]) != ' ':
                         return False
             return True
 
     if (getPiece(cord1) == 'b'):  # Bishop rules
-        if (cord2[0] - cord1[0] == cord2[1] - cord2[1] & ((getPiece(cord2) == ' ') | (getPiece(cord2).islower()))):
-            bish = cord2[0] - cord1[0]
+        if (int(cord2[0]) - int(cord1[0]) == int(cord2[1]) - int(cord2[1]) & (
+                (getPiece(cord2) == ' ') | (getPiece(cord2).islower()))):
+            bish = int(cord2[0]) - int(cord1[0])
             if bish < 0:
                 bish = bish * (-1)
-            bish0 = '0'
+            bish0 = 0
             while (bish0 < bish):
                 bish0 = bish0 + 1
-                if getPiece((cord2[0] - bish0) + (cord2[1] - bish0)) != ' ':
+                if getPiece(str(int(cord2[0]) - bish0) + str(int(cord2[1]) - bish0)) != ' ':
                     return False
         return True
 
     if (getPiece(cord1) == 'B'):  # Bishop rules
-        if (cord2[0] - cord1[0] == cord2[1] - cord2[1] & ((getPiece(cord2) == ' ') | (getPiece(cord2).islower()))):
-            bish = cord2[0] - cord1[0]
+        if (int(cord2[0]) - int(cord1[0]) == int(cord2[1]) - int(cord2[1]) & (
+                (getPiece(cord2) == ' ') | (getPiece(cord2).islower()))):
+            bish = int(cord2[0]) - int(cord1[0])
             if bish < 0:
                 bish = bish * (-1)
             bish0 = '0'
             while (bish0 < bish):
                 bish0 = bish0 + 1
-                if getPiece((cord2[0] - bish0) + (cord2[1] - bish0)) != ' ':
+                if getPiece(str(int(cord2[0]) - bish0) + str(int(cord2[1]) - bish0)) != ' ':
                     return False
         return True
 
     if (getPiece(cord1) == 'n'):  # K***ht rules
-        if ((cord2[0] - cord1[0] <= '2') & (cord2[1] - cord1[1] <= '2') & (cord2[0] - cord1[0] >= '-2') & (
-                cord2[1] - cord1[1] == '-2') & (getPiece(cord2).isupper | getPiece(cord2) == ' ')):
+        if (((int(cord2[0]) - int(cord1[0]) <= 2) | (int(cord2[0]) - int(cord1[0]) >= -2)) & (
+                (int(cord2[1]) - int(cord1[1]) <= 2) | (
+                int(cord2[1]) - int(cord1[1]) == -2)) & (getPiece(cord2).isupper() | (getPiece(cord2) == ' '))):
             return True
+        else:
+            return False
 
     if (getPiece(cord1) == 'N'):  # K***ht rules
-        if ((int(cord2[0] - cord1[0]) <= 2) & (int(cord2[1] - cord1[1]) <= 2) & (int(cord2[0] - cord1[0]) >= -2) & (
-                int(  # TODO доделать преобразование типов со всеми
-                        cord2[1] - cord1[1]) == -2) & (getPiece(cord2).isupper | getPiece(cord2) == ' ')):
+        if (((int(cord2[0]) - int(cord1[0]) <= 2) | (int(cord2[0]) - int(cord1[0]) >= -2)) & (
+                (int(cord2[1]) - int(cord1[1]) <= 2) | (int(cord2[1]) - int(cord1[1]) == -2)) & (
+                getPiece(cord2).isupper() | (getPiece(cord2) == ' '))):
             return True
+        else:
+            return False

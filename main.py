@@ -7,6 +7,7 @@ a = ''
 def getPiece(cord):
     return desk.map[int(cord[1])][int(cord[0])]
 
+
 def reCord(cord):
     newcord1 = ord(cord[0]) - 96
     newcord2 = ord(cord[1]) - 48
@@ -49,4 +50,3 @@ while (a != 'quit'):
                         for i in desk.map:
                             print(i)
             #     desk.history.append({'step': a, 'stash': piece.getPiece(cord=cord2)})
-
