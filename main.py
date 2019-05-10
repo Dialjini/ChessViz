@@ -26,12 +26,12 @@ for i in desk.map:
 
 while (a != 'quit'):
     a = input()
-    print(a)
     if (a == 'help'):
         print('Available commands:')
         print('Cord commands. For example a7-a5. (a-h, 1-8)')
         print('back : Makes a step back in current game')
         print('restart : restarts current game')
+        print('quit : ends current game')
 
     if (a == 'restart'):
         desk.map = desk.default
@@ -50,4 +50,3 @@ while (a != 'quit'):
                             print(i)
             #     desk.history.append({'step': a, 'stash': piece.getPiece(cord=cord2)})
 
-print(getCord2(a='a1-a2'))
