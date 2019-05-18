@@ -14,12 +14,12 @@ def reCord(cord):
     return str(newcord1) + str(newcord2)
 
 
-def getCord2(a):
-    return reCord(cord=(a[3] + a[4]))
+def getCord2(inp):
+    return reCord(cord=(inp[3] + inp[4]))
 
 
-def getCord1(a):
-    return reCord(cord=(a[0] + a[1]))
+def getCord1(inp):
+    return reCord(cord=(inp[0] + inp[1]))
 
 
 for i in desk.map:
@@ -49,4 +49,3 @@ while (a != 'quit'):
                         desk.map[int(cord1[1])][int(cord1[0])] = ' '
                         for i in desk.map:
                             print(i)
-            #     desk.history.append({'step': a, 'stash': piece.getPiece(cord=cord2)})
